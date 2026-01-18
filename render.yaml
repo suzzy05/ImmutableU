@@ -1,0 +1,66 @@
+services:
+  # Backend Service - Node.js + Express + Prisma
+  - type: web
+    name: immutableu-backend
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: cd backend && npm install && npx prisma generate && npx prisma migrate deploy
+    startCommand: cd backend && npm start
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3100
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: immutableu-frontend
+          property: host
+
+  # AI Service - Python + FastAPI + Google Gemini
+  - type: web
+    name: immutableu-ai
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: cd mcp && pip install -r requirements.txt
+    startCommand: cd mcp && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: GOOGLE_API_KEY
+        value: AIzaSyCwztkIqxmmA4HvBeYAsEdZKbRx02kqqQc
+      - key: BLOCKFROST_PROJECT_ID
+        value: previewC9oICIjk1p4OErWXu6R8uVBvPDI2krim
+      - key: BLOCKFROST_BASE_URL
+        value: https://cardano-preview.blockfrost.io/api/v0
+
+  # Frontend Service - React + Vite + TypeScript
+  - type: web
+    name: immutableu-frontend
+    runtime: static
+    region: singapore
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: immutableu-backend
+          property: host
+      - key: VITE_API_BLOCKFROST_API_KEY
+        value: previewC9oICIjk1p4OErWXu6R8uVBvPDI2krim
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
