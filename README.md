@@ -145,7 +145,6 @@ The user interface is clean, responsive, and intuitive. Features include:
 - Dynamic contract templates
 - AI-assistance embedded in the UI
 
-➡️ [ImmutableU Frontend: Quick Start & Setup Guide](./frontend/README.md)
 
 ---
 
@@ -163,7 +162,7 @@ This backend system:
 - Handles blockchain document verification & digital signatures
 - Ensures full contract lifecycle security
 
-➡️ [ImmutableU Backend: Quick Start & Setup Guide](./backend/README.md)
+
 
 ---
 
@@ -250,21 +249,4 @@ We extend our deepest gratitude to the following technologies, communities, and 
 - **The Incredible Open-Source Community** — For invaluable tools and libraries.
 
 ---
-
-> 🏆 **Built for UniHack 2025** — Organized by [CoinCeylon](https://coinceylon.com/)
-
-> ✨ **ImmutableU** was proudly developed for **UniHack 2025**  
-> _Sri Lanka's pioneering Inter-University Blockchain Hackathon!_
-
-This platform — a flagship project from **UniHack 2025** — showcases the power of **AI + Cardano Blockchain** for secure, transparent legal contracts.
-
-Organized by **CoinCeylon** and **FCT, University of Kelaniya**, UniHack 2025 empowers the next generation of tech leaders to build impactful blockchain solutions.
-
-> ⚖️ **ImmutableU** stands as a prime example of this innovative spirit.
-
----
-
-<p align="center">
-<img src="./frontend/src/assets/logo.png" alt="ImmutableU Logo" width="150"/><br>
-Built with passion for a transparent and trusted legal future.
 </p>
