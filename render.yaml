@@ -47,11 +47,11 @@ services:
   # Frontend Service - React + Vite + TypeScript
   - type: web
     name: immutableu-frontend
-    runtime: static
+    runtime: node
     region: singapore
     plan: free
     buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
+    startCommand: cd frontend && npx serve -s dist -l 3000
     envVars:
       - key: VITE_API_APP_BACKEND_URL
         fromService:
@@ -60,7 +60,3 @@ services:
           property: host
       - key: VITE_API_BLOCKFROST_API_KEY
         value: previewC9oICIjk1p4OErWXu6R8uVBvPDI2krim
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
