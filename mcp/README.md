@@ -300,5 +300,3 @@ For technical support or questions:
 4. Verify vector databases are properly initialized
 
 ---
-
-**Built for UniHack 2025 Organized by [CoinCeylon](https://coinceylon.com/)** - An intelligent assistant system combining legal expertise with blockchain technology.
