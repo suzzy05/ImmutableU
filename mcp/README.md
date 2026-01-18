@@ -280,9 +280,6 @@ Returns system health status and availability.
 4. Add appropriate tests
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the terms specified in the LICENSE file.
 
 ## 🚨 Important Notes
 
