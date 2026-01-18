@@ -50,7 +50,7 @@ services:
     runtime: node
     region: singapore
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
+    buildCommand: cd frontend && rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm run build
     startCommand: cd frontend && npx serve -s dist -l 3000
     envVars:
       - key: VITE_API_APP_BACKEND_URL
